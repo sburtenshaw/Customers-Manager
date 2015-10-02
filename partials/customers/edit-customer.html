@@ -1,0 +1,38 @@
+<div class="page-header">
+	<h1>Edit Customer</h1>
+</div>
+
+<form>
+	<div class="row">
+		<div class="form-group col-sm-8">
+			<label for="newCustomerName">Full Name:</label>
+			<input type="text" class="form-control" id="newCustomerName" placeholder="Full Name" data-ng-model="customerDetails.name"/>
+		</div>
+		<div class="form-group col-sm-4">
+			<label for="newCustomerGender">Gender:</label>
+			<select class="form-control" id="newCustomerGender" placeholder="Select Gender" data-ng-model="customerDetails.gender">
+				<option>Male</option>
+				<option>Female</option>
+			</select>
+		</div>
+		<div class="form-group col-sm-12">
+			<label for="newCustomerAddressLineOne">Address Line One:</label>
+			<input type="text" class="form-control" id="newCustomerAddressLineOne" placeholder="Address Line One" data-ng-model="customerDetails.addressLineOne"/>
+		</div>
+		<div class="form-group col-sm-12">
+			<label for="newCustomerAddressLineTwo">Address Line Two:</label>
+			<input type="text" class="form-control" id="newCustomerAddressLineTwo" placeholder="Address Line Two" data-ng-model="customerDetails.addressLineTwo"/>
+		</div>
+		<div class="form-group col-sm-6">
+			<label for="newCustomerCity">City:</label>
+			<input type="text" class="form-control" id="newCustomerCity" placeholder="City" data-ng-model="customerDetails.city"/>
+		</div>
+		<div class="form-group col-sm-6">
+			<label for="newCustomerPostCode">Post Code:</label>
+			<input type="text" class="form-control" id="newCustomerPostCode" placeholder="Post Code" data-ng-model="customerDetails.postCode"/>
+		</div>
+		<div class="form-group col-sm-12">
+			<a href="#" onclick="event.preventDefault();" class="btn btn-success btn-lg btn-block" data-ng-click="updateCustomerDetails()">Update Customer</a>
+		</div>
+	</div>
+</form>

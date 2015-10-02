@@ -1,0 +1,64 @@
+<div class="page-header">
+	<h1>Customer Details <small>{{ customerDetails.name }}</small></h1>
+	<p data-ng-if="customerDetails.orders == 0">No orders</p>
+	<p><a href="#/orders/{{ customerDetails.id }}" data-ng-if="customerDetails.orders == 1">1 Order</a></p>
+	<p><a href="#/orders/{{ customerDetails.id }}" data-ng-if="customerDetails.orders > 1">{{ customerDetails.orders }} Orders</a></p>
+	<a href="#/edit-customer/{{ customerDetails.id }}" class="btn btn-success">Edit Customer</a>
+	<a href="#/add-order/{{ customerDetails.id }}" class="btn btn-success" role="button">Add Order</a>
+</div>
+
+<div class="table-responsive">
+	<table class="table">
+		<thead>
+			<th>Name</th>
+			<th>Gender</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{ customerDetails.name }}</td>
+				<td>{{ customerDetails.gender }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="table-responsive">
+	<table class="table">
+		<thead>
+			<th>Address Line One</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{ customerDetails.addressLineOne }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="table-responsive">
+	<table class="table">
+		<thead>
+			<th>Address Line Two</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{ customerDetails.addressLineTwo }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="table-responsive">
+	<table class="table">
+		<thead>
+			<th>City</th>
+			<th>Post Code</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{ customerDetails.city }}</td>
+				<td>{{ customerDetails.postCode }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
