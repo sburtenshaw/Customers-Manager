@@ -1,2 +1,2 @@
 # Customers-Manager
-Application for managing customers and their orders
+Application for managing customers and their orders using angularJS
