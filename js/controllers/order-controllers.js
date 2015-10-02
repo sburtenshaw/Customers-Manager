@@ -3,6 +3,8 @@ customersApp.controller('OrdersController',
 
 		$scope.orders = getOrders();
 
+		$scope.customerCount = CustomersService.returnCustomerCount();
+
 		function getOrders() {
 			var orders = OrdersService.returnOrders();
 
@@ -54,7 +56,13 @@ customersApp.controller('CustomerOrdersController',
 customersApp.controller('AddOrderController', 
 	function($scope, $location, CustomersService, OrdersService) {
 
-		$scope.customers = CustomersService.returnCustomers();
+		var customers = CustomersService.returnCustomers();
+
+		if (customers != false) {
+			$scope.customers = customers;
+		} else {
+			$location.path('/');
+		}
 
 		$scope.addOrder = function() {
 			var newOrderDetails = {

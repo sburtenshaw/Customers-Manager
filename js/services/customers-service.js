@@ -9,6 +9,14 @@ customersApp.service('CustomersService', function() {
 		}
 	}
 
+	this.returnCustomerCount = function() {
+		if (this.customers.length > 0) {
+			return this.customers.length;
+		} else {
+			return false;
+		}
+	}
+
 	this.addCustomer = function(newCustomer) {
 		this.customers.push(newCustomer);
 	}
@@ -59,7 +67,8 @@ customersApp.service('CustomersService', function() {
 				if (this.customers[i].id == customerId) {
 					return {
 						customerId: this.customers[i].id,
-						name: this.customers[i].name
+						name: this.customers[i].name,
+						gender: this.customers[i].gender
 					}
 				} else {
 					if (i == (this.customers.length - 1)) {

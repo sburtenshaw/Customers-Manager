@@ -3,17 +3,20 @@
 	<a href="#/add-order/{{ customer.id }}" class="btn btn-success" role="button">Add Order</a>
 </div>
 
-<div class="row" data-ng-repeat="order in customer.orders" data-ng-if="customer.orders">
-	<div class="col-sm-4 col-md-3">
-		<div class="thumbnail">
-			<img src="//fillmurray.com/242/200" alt="image">
-			<div class="caption">
-				<ul>
-					<li>Product: {{ order.product }}</li>
-					<li>Price: £{{ order.price }}</li>
-				</ul>
-				<p><a href="#/edit-order/{{ order.id }}" class="btn btn-success btn-block" role="button">Edit Order</a></p>
-				<p><a href="#" onclick="event.preventDefault();" class="btn btn-danger btn-block" role="button" data-ng-click="deleteOrder(order.id)">Delete Order</a></p>
+<div class="row" data-ng-if="customer.orders">
+	<div data-ng-repeat="order in customer.orders">
+		<div class="col-sm-4 col-md-3">
+			<div class="thumbnail">
+				<img src="img/avatar_man.jpg" data-ng-if="customer.gender == 'Male'">
+				<img src="img/avatar_woman.jpg" data-ng-if="customer.gender == 'Female'">
+				<div class="caption">
+					<ul>
+						<li>Product: {{ order.product }}</li>
+						<li>Price: £{{ order.price }}</li>
+					</ul>
+					<p><a href="#/edit-order/{{ order.id }}" class="btn btn-success btn-block" role="button">Edit Order</a></p>
+					<p><a href="#" onclick="event.preventDefault();" class="btn btn-danger btn-block" role="button" data-ng-click="deleteOrder(order.id)">Delete Order</a></p>
+				</div>
 			</div>
 		</div>
 	</div>

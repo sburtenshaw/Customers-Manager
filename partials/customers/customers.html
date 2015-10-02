@@ -1,21 +1,24 @@
 <div class="page-header">
 	<h1>Customers</h1>
 	<a href="#/add-customer" class="btn btn-success" role="button">Add Customer</a>
-	<a href="#/add-order" class="btn btn-success" role="button">Add Order</a>
+	<a href="#/add-order" class="btn btn-success" role="button" data-ng-if="customers">Add Order</a>
 </div>
 
-<div class="row" data-ng-repeat="customer in customers track by $index" data-ng-if="customers">
-	<div class="col-sm-4 col-md-3">
-		<div class="thumbnail">
-			<img src="//fillmurray.com/242/200" alt="image">
-			<div class="caption">
-				<h3>{{ customer.name }}</h3>
-				<p data-ng-if="customer.orders == 0">No orders</p>
-				<a href="#/orders/{{ customer.id }}" data-ng-if="customer.orders == 1"><p>1 Order</p></a>
-				<a href="#/orders/{{ customer.id }}" data-ng-if="customer.orders > 1"><p>{{ customer.orders }} Orders</p></a>
-				<p><a href="#/customer-details/{{ customer.id }}" class="btn btn-success btn-block" role="button">Details</a></p>
-				<p><a href="#/add-order/{{ customer.id }}" class="btn btn-success btn-block" role="button">Add Order</a></p>
-				<p><a href="#" onclick="event.preventDefault();" class="btn btn-danger btn-block" role="button" data-ng-click="deleteCustomer(customer.id)">Delete Customer</a></p>
+<div class="row" data-ng-if="customers">
+	<div data-ng-repeat="customer in customers track by $index">
+		<div class="col-sm-4 col-md-3">
+			<div class="thumbnail">
+				<img src="img/avatar_man.jpg" data-ng-if="customer.gender == 'Male'">
+				<img src="img/avatar_woman.jpg" data-ng-if="customer.gender == 'Female'">
+				<div class="caption">
+					<h3>{{ customer.name }}</h3>
+					<p data-ng-if="customer.orders == 0">No orders</p>
+					<a href="#/orders/{{ customer.id }}" data-ng-if="customer.orders == 1"><p>1 Order</p></a>
+					<a href="#/orders/{{ customer.id }}" data-ng-if="customer.orders > 1"><p>{{ customer.orders }} Orders</p></a>
+					<p><a href="#/customer-details/{{ customer.id }}" class="btn btn-success btn-block" role="button">Details</a></p>
+					<p><a href="#/add-order/{{ customer.id }}" class="btn btn-success btn-block" role="button">Add Order</a></p>
+					<p><a href="#" onclick="event.preventDefault();" class="btn btn-danger btn-block" role="button" data-ng-click="deleteCustomer(customer.id)">Delete Customer</a></p>
+				</div>
 			</div>
 		</div>
 	</div>
