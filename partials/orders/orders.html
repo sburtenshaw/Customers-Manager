@@ -1,10 +1,16 @@
 <div class="page-header">
 	<h1>Orders</h1>
 	<a href="#/add-order" class="btn btn-success" role="button" data-ng-if="customerCount">Add Order</a>
+	<form class="form-inline pull-right" data-ng-hide="!orders">
+		<div class="form-group">
+			<label for="filterOrdersInput">Filter: </label>
+			<input type="text" class="form-control" id="filterOrdersInput" placeholder="filter" data-ng-model="filterOrders"/>
+		</div>
+	</form>
 </div>
 
 <div class="row" data-ng-if="orders">
-	<div data-ng-repeat="order in orders">
+	<div data-ng-repeat="order in orders | filter: filterOrders">
 		<div class="col-sm-4 col-md-3">
 			<div class="thumbnail">
 				<img src="img/avatar_man.jpg" data-ng-if="order.customer.gender == 'Male'">

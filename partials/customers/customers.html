@@ -2,10 +2,16 @@
 	<h1>Customers</h1>
 	<a href="#/add-customer" class="btn btn-success" role="button">Add Customer</a>
 	<a href="#/add-order" class="btn btn-success" role="button" data-ng-if="customers">Add Order</a>
+	<form class="form-inline pull-right" data-ng-hide="!customers">
+		<div class="form-group">
+			<label for="filterCustomersInput">Filter: </label>
+			<input type="text" class="form-control" id="filterCustomersInput" placeholder="filter" data-ng-model="filterCustomers"/>
+		</div>
+	</form>
 </div>
 
 <div class="row" data-ng-if="customers">
-	<div data-ng-repeat="customer in customers track by $index">
+	<div data-ng-repeat="customer in customers | filter:filterCustomers">
 		<div class="col-sm-4 col-md-3">
 			<div class="thumbnail">
 				<img src="img/avatar_man.jpg" data-ng-if="customer.gender == 'Male'">
