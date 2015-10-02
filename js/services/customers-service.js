@@ -23,7 +23,7 @@ customersApp.service('CustomersService', function() {
 
 	this.getNextId = function() {
 		if (this.customers.length > 0) {
-			return (this.customers[(this.customers.length - 1)].id + 1);
+			return (parseInt(this.customers[(this.customers.length - 1)].id) + 1);
 		} else {
 			return 1;
 		}

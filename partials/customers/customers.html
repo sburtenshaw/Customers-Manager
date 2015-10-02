@@ -16,6 +16,7 @@
 					<a href="#/orders/{{ customer.id }}" data-ng-if="customer.orders == 1"><p>1 Order</p></a>
 					<a href="#/orders/{{ customer.id }}" data-ng-if="customer.orders > 1"><p>{{ customer.orders }} Orders</p></a>
 					<p><a href="#/customer-details/{{ customer.id }}" class="btn btn-success btn-block" role="button">Details</a></p>
+					<p data-ng-if="customer.orders > 0"><a href="#/orders/{{ customer.id }}" class="btn btn-success btn-block" role="button">View Orders</a></p>
 					<p><a href="#/add-order/{{ customer.id }}" class="btn btn-success btn-block" role="button">Add Order</a></p>
 					<p><a href="#" onclick="event.preventDefault();" class="btn btn-danger btn-block" role="button" data-ng-click="deleteCustomer(customer.id)">Delete Customer</a></p>
 				</div>
